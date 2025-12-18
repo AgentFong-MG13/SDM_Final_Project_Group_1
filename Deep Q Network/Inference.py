@@ -133,6 +133,6 @@ def run_inference_analysis(model_path, num_simulations):
 if __name__ == "__main__":
     start_time = time.time()
     num_simulations = 1000
-    run_inference_analysis("air_cargo_dqn_policy_512.zip", num_simulations)
+    run_inference_analysis("dqn_policy.zip", num_simulations)
     end_time = time.time()
     print(f"模擬{num_simulations}次共耗時: {end_time - start_time:.2f} 秒")

@@ -130,7 +130,7 @@ def run_simulation(model, env, num_episodes):
 # 執行測試
 if __name__ == "__main__":
     # 訓練設定
-    TOTAL_TIMESTEPS = 12000000 # 原本300000，一天就是一步，最佳6000000
+    TOTAL_TIMESTEPS = 6000000 # 原本300000，一天就是一步，最佳6000000
     train_env = make_vec_env(AirCargoDQNEnv, n_envs=16) # 設成8的推論效果好像比較好
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -144,7 +144,7 @@ if __name__ == "__main__":
         verbose=0,
         learning_rate=1e-4,
         buffer_size=1200000,#原本50000
-        learning_starts=200000,#原本5000，最佳100000
+        learning_starts=100000,#原本5000，最佳100000
         batch_size=512, #原本128
         tau=1.0,
         gamma=1.0,
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     )
 
     model.learn(total_timesteps=TOTAL_TIMESTEPS)
-    model.save("air_cargo_dqn_policy_512.zip")
+    model.save("dqn_policy.zip")
     end_time = time.time()
     print(f"訓練完成！耗時: {end_time - start_time:.2f} 秒")
     test_env = AirCargoDQNEnv()
