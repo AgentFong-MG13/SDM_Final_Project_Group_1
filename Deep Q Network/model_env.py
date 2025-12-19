@@ -12,7 +12,7 @@ import random
 HORIZON = 14
 DEMAND_LEVELS = [5000.0, 10000.0, 15000.0, 20000.0, 25000.0]
 DEMAND_PROBS  = [ 0.339, 0.244, 0.188, 0.132, 0.097]
-
+UNIT = 1000
 @dataclass
 class Airline:
     name: str
